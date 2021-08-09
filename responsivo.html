@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* mobile first */
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: blanchedalmond;
+        }
+
+        h1 {
+            font-size: 18px;
+            color: brown;
+            text-align: center;
+        }
+
+        p {
+            display: none;
+        }
+
+
+
+        /************** BREAK POINTS **************/
+        /* tablets */
+
+        @media screen and (min-width: 768px) {
+            body {
+                background-color: red;
+            }
+
+            h1 {
+                font-size: 32px;
+                color: white;
+            }
+
+            p {
+                display: block;
+            }
+        }
+
+        /* DESKTOPS */
+
+        @media screen and (min-width: 992px) {
+            body {
+                background-color: blue;
+            }
+
+            #container {
+                margin: 0 auto;
+                max-width: 990px;
+                border: 3px solid yellow;
+            }
+        }
+
+        /* TELAS LARGAS */
+
+        @media screen and (min-width: 1200px) {
+            body {
+                background-color: green;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>RESPOSIVIDADE NA WEB</h1>
+
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus itaque neque accusantium sint deserunt unde
+            possimus quidem praesentium, a, rerum odit. Cupiditate facere quo, excepturi ipsa doloribus provident quam
+            explicabo.</p>
+    </div>
+
+</body>
+
+</html>

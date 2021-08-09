@@ -1,36 +1,102 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/* Reset de propriedades da página toda */
+
+* {
     margin: 0;
     padding: 0;
+    /* 
+        width e height incluirão as bordas 
+        no tamanho final 
+    */
     box-sizing: border-box;
-}
-html, body {
-    height: 100%;
-}
-body {
-    background-image: linear-gradient(to bottom,#026ddc, #109bc6, #1bc0b4);
-    background-repeat: no-repeat;
+    /* border: 1px solid black; */
 }
 
-nav {
+/* MOBILE FIRST */
+
+body {
+    padding: 15px;
+    background-color: #026ddc;
+    background-image: linear-gradient(to bottom, #026ddc, #109bc6, #1bc0b4);
+    background-repeat: no-repeat;
+    color: white;
+    /* border: 5px solid red; */
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* flex container */
+
+.icone-box {
+    display: flex;
+    flex-direction: row;
+    /* eixo principal */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* espaçamento do eixo principal */
+    align-items: center;
+    /*espaçamento do eixo secundário */
+    width: 80%;
+    height: 50%;
+    background-color: tomato;
+}
+
+/* .icone-box i {
+    font-size: 2rem;
+    margin: 0 10px;
+} */
+
+.label-box {
+    /* label */
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 0px 10px 0px 10px;
+}
 
+.label-box i {
+    font-size: 1.5rem;
+}
+
+#btn-abre {
+    position: fixed;
+    top: calc(50% - 30px);
+    left: 0;
+    z-index: 1;
+    background-color: #02044b;
+    border: 1px solid #02044b;
+}
+
+#btn-fecha {
+    position: fixed;
+    top: 10px;
+    right: -100px;
+    z-index: 3;
+    background-color: #005a83;
+    border: 1px solid #005a83;
+    transition: right 0.7s;
+}
+
+nav {
     position: fixed;
     top: 0;
-    left: -80%;
+    left: -100vw;
     z-index: 2;
-    width: 80%;
-    height: 100%;
-    background-color: white;
-    opacity: 0;
-
-    transition: left 0.4s, opacity 0.4s;
-}
-nav ul {
+    /* opacity: 0.7; */
+    width: 80vw;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: #005a83;
+    opacity: 0;
+    transition: left 0.5s, opacity 0.7s;
+}
+
+nav ul {
     /* border: 1px solid red; */
     width: 70%;
     height: 50%;
@@ -38,67 +104,92 @@ nav ul {
 
 nav ul li {
     padding: 15px 10px;
+    margin-bottom: 20px;
+    border-left: 2px dotted #005a83;
     list-style: none;
+    font-size: 1.2rem;
     color: grey;
-    font-size: 20px;
-    border-left: 2px dotted #026ddc;
 }
 
+/* input checbox */
 
-
-/* input type checkbox */
 #abre-fecha {
     position: fixed;
     bottom: 0;
     right: 0;
-    display: none;
+    /* display: none; */
 }
 
-/* input:checked */
 #abre-fecha:checked ~ nav {
     left: 0;
-    opacity: 0.95;
+    opacity: 1;
 }
 
-#abre-fecha:checked ~ #fecha {
+#abre-fecha:checked~#btn-fecha {
     right: calc(20% + 10px);
 }
 
+/* TABLET 768px */
 
-/* 2 LABEL`s - ICONES */
-.btn-icon {
-    width: 60px;
-    height: 60px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 24px;
-    color: white;
-    border-radius: 0px 10px;
-}
-
-#abre {
-    /* referencial - viewport */
-    position: fixed;
-    /* no meio da tela */
-    top: calc(50% - 30px);
-    left: 0;
-    z-index: 1;
-
-    background-color: #02044b;
-    border: 1px solid #02044b;
-
-}
-
-#fecha {
-    position: fixed;
-    top: 10px;
-    right: -80px;
-    z-index: 3;
+@media screen and ( min-width: 768px) {
+    h1 {
+        text-align: center;
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+    }
+    p { font-size: 1.5rem; }
     
-    background-color: #005a83;
-    border: 1px solid #005a83;
-    transition: right 0.6s ;
+    .label-box {
+        
+        width: 90px;
+        height: 90px;
+    }
+    #btn-abre {
+        top: calc( 50% - 45px );
+    }
+    .label-box i {
+        font-size: 2.5rem;
+    }
+
+    nav ul li {
+        padding: 15px 25px;
+        margin-bottom: 20px;
+        font-size: 2.2rem;
+    }
 }
+
+/* DESKTOP 992px */
+
+@media screen and ( min-width: 992px) {
+    body {
+        padding:0;
+    }
+    .label-box { display: none; }
+    
+    nav {
+        position: static;
+        opacity: 1;
+        width: 100%;
+        height: auto;
+    }
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+    }
+    nav ul li {
+        font-size: 1rem;
+        border-left: none;
+        border-bottom: 1px dotted #005a83;
+        cursor: pointer;
+    }
+
+    nav ul li:hover {
+        color: #005a83;
+        border-bottom: none;
+    }
+
+}
+
+/* TELAS LARGAS 1200px */
+
+@media screen and ( min-width: 1200px) {}
